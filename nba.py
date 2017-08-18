@@ -33,6 +33,18 @@ def converge(numSimulations, desiredLikelihood):
 		baseline = simulate(numSimulations, winLikelihood)
 	return winLikelihood
 	
+def convergeBinarySearch(numSimulations, desiredLikelihood):
+	#more effiecient but potentially flawed due to randomness
+	low = 0.0 #always lose
+	high = 1.0 #always win
+	while high - low > .001:
+		guess = (high + low)/2.0
+		baseline = simulate(numSimulations, guess)
+		if baseline > desiredLikelihood:
+			high = guess
+		else:
+			low = guess
+	return guess
 
 
 def main():
@@ -40,7 +52,7 @@ def main():
 	# print simulate(100000, .8)
 
 	# second question
-	print converge(10000, .5)
+	print convergeBinarySearch(10000, .5)
 
 
 
