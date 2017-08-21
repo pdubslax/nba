@@ -49,7 +49,7 @@ def convergeBinarySearch(numSimulations, desiredLikelihood):
 
 def main():
 	# first question
-	# print simulate(100000, .8)
+	print simulate(1000000, .8)
 
 	# second question
 	print convergeBinarySearch(10000, .5)
